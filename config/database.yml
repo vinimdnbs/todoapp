@@ -17,6 +17,7 @@ development:
   encoding: unicode
   database: todoapp_development
   pool: 5
+  host: localhost
   username: postgres
   password: development
 
@@ -43,6 +44,7 @@ test:
   encoding: unicode
   database: todoapp_test
   pool: 5
+  host: localhost
   username: postgres
   password: development
 

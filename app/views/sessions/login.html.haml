@@ -1,0 +1,28 @@
+.container
+  .row
+    .span7
+      %h1 Todo app
+      %h3 O nosso lema é: Aqui você sempre sabe o que deve ser feito :)
+    .span4.offset1
+      #right-column.pull-right
+        = form_tag({action: 'login_attempt'}, id: 'login-form') do
+          %label Email
+          = text_field_tag :email
+
+          %label Senha
+          = password_field_tag :password
+
+          = submit_tag 'Entrar', class: 'btn btn-primary'
+
+        - if alert
+          .alert.alert-block
+            %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
+            %p= alert
+
+        - if notice
+          .alert.alert-success.alert-block
+            %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
+            %p= notice
+
+        %h3 Novo por aqui?
+        = link_to 'Cadastre-se', new_user_path, class: 'btn btn-success'
