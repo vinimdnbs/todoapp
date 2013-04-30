@@ -1,3 +1,35 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tasks {
+  .wraper {
+    min-height: 350px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .todo {
+    background: #91FF7A;
+    color: black;
+
+    &:hover  {
+      background: #83E66E;
+    }
+  }
+
+  .done {
+    background: #D6D6D6;
+
+    &:hover {
+      background: #C8BDCA;
+    }
+  }
+
+  #show {
+    p {
+      margin-bottom: 25px;
+    }
+  }
+}

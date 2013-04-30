@@ -20,16 +20,15 @@ ActiveRecord::Schema.define(:version => 20130425235507) do
   end
 
   create_table "tasks", :force => true do |t|
-    t.string   "name",                         :null => false
-    t.integer  "label_id",                     :null => false
-    t.boolean  "status",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "description",                   :null => false
+    t.integer  "label_id",                      :null => false
+    t.boolean  "status",      :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",              :null => false
-    t.string   "salt"
     t.string   "encrypted_password"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false

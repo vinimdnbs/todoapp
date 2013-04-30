@@ -1,0 +1,33 @@
+= render partial: 'shared/header'
+
+.container
+  .row
+    .span12
+      %h1 Labels
+
+      - if notice
+        .alert.alert-success.alert-block
+          %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
+          %p= notice
+
+      .wraper
+        %table.table.table-hover
+          %thead
+            %tr
+              %th Nome
+              %th Data de Criação
+              %th{:colspan=>'2'}
+          %tbody
+            - @labels.each do |l|
+              %tr
+                %td= l.name
+                %td= l.created_at.strftime('%d/%m/%Y')
+                %td= link_to 'Editar', edit_label_path(l)
+                %td= link_to 'Apagar', l, method: :delete, data:{confirm: 'Você tem certeza? Todas as tarefas relacionadas a este label também serão apagadas.'}
+
+      = link_to 'Novo label', new_label_path, class: 'btn btn-primary'
+
+:javascript
+  $(document).ready(function() {
+    $("#labels").addClass("active");
+  });

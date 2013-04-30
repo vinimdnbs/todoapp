@@ -1,0 +1,18 @@
+= render partial: 'shared/header'
+
+.container
+  .row
+    .span6
+      #show
+        = label_tag 'Descrição:'
+        %p= @task.description
+        = label_tag 'Label:'
+        %p= @task.label.name
+        = label_tag 'Status:'
+        %p= @task.status ? 'Todo' : 'Done'
+        = label_tag 'Data:'
+        %p= @task.created_at.strftime('%d/%m/%Y')
+
+      .btn-group
+        = link_to 'Editar', edit_task_path, class: 'btn btn-primary'
+        = link_to 'Apagar', @task, method: :delete, data:{confirm: 'Você tem certeza?'}, class: 'btn btn-danger'

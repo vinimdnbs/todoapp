@@ -1,8 +1,9 @@
 Todoapp::Application.routes.draw do
   root to: 'tasks#index'
 
-  resources :users
+  resources :users, except:[:show, :destroy, :index]
   resources :tasks
+  resources :labels, except:[:show]
 
   match ':controller(/:action(/:id))(.:format)'
 

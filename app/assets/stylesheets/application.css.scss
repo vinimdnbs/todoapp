@@ -13,7 +13,7 @@
  */
 
 header {
-  .page-header
+  .page-header {
     a {
       color: inherit;
 
@@ -22,4 +22,9 @@ header {
         text-decoration: none;
       }
     }
+  }
+
+  .nav-pills {
+     margin-bottom: 0;
+  }
 }

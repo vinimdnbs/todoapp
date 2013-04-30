@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash[:alert] = 'Email ou senha incorretos'
-      render 'login'
+      render action: 'login'
     end
   end
 

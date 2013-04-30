@@ -1,0 +1,38 @@
+= render partial: 'shared/header'
+
+.container
+  .row
+    .span6
+      = label_tag 'Email:'
+      %p= @user.email
+      = label_tag 'Data de Criação:'
+      %p= @user.created_at.strftime('%d/%m/%Y')
+      .well
+        %h3 Alterar senha
+        = form_for @user, html:{class: 'form-horizontal'} do |u|
+          .control-group
+            = u.label :password, 'Nova Senha', class: 'control-label'
+            .controls
+              = u.password_field :password
+
+          .control-group
+            .controls
+              = u.submit 'Salvar', class: 'btn btn-success'
+
+        - if notice
+          .alert.alert-success.alert-block
+            %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
+            %p= notice
+
+        - if @user.errors.any?
+          .alert.alert-block
+            %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
+            %h3 Erro ao salvar!
+            %ul
+              - @user.errors.each do |error, message|
+                %li= message
+
+:javascript
+  $(document).ready(function() {
+    $("#conta").addClass("active");
+  });

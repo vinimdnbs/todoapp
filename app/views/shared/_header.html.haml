@@ -1,16 +1,25 @@
 %header
-  .row
-    .span12
-      .page-header
-        %h1
-          = link_to 'Todo app', root_path
-          %small Tarefas inteligentes, ou não...
+  .container
+    .row
+      .span12
+        .page-header
+          %h1
+            = link_to 'Todo app', root_path
+            %small Tarefas inteligentes, ou não...
 
-      - unless @current_user.nil?
-        %h4{:class=>'pull-right'}
-          Logado como
-          = @current_user.email
-          ,
-          = link_to ' sair.', controller: 'sessions', action: 'logout'
+  - unless @current_user.nil?
+    .subnav
+      .container
+        %ul.nav.nav-pills
+          %li#tarefas= link_to 'Tarefas', root_path
+          %li#labels= link_to 'Labels', labels_path
+          %li#conta= link_to 'Conta', edit_user_path(@current_user.id)
+
+    .container
+      %h4{:class=>'pull-right'}
+        Logado como
+        = @current_user.email
+        ,
+        = link_to ' sair.', controller: 'sessions', action: 'logout'
 
 
