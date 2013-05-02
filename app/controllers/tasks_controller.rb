@@ -25,8 +25,19 @@ class TasksController < ApplicationController
   end
 
   def index
-    @labels = @current_user.labels.all
-    @tasks = @current_user.tasks.order('created_at desc')
+    @labels = @current_user.labels.order('name')
+
+    unless params[:filter].blank?
+      @tasks_no_filter = @current_user.tasks
+      @tasks = Array.new
+      @tasks_no_filter.each do |t|
+        if t.label_id == params[:filter].to_i
+          @tasks << t
+        end
+      end
+    else
+      @tasks = @current_user.tasks.order('created_at desc')
+    end
   end
 
   def new

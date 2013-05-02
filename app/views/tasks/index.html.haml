@@ -4,7 +4,15 @@
   .row
     .span12
       %h1 Tarefas
+      .pull-right
+        = form_tag '/', method: :get do
+          Filtrar por label
+          .input-append
+            = select_tag :filter, options_from_collection_for_select(@labels, 'id', 'name', params[:filter]), prompt: 'Todos'
+            = submit_tag 'Filtrar', class: 'btn'
 
+  .row
+    .span12
       - if notice
         .alert.alert-success.alert-block
           %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
