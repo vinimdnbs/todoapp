@@ -3,6 +3,9 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   attr_accessor :password
 
+  has_many :tasks
+  has_many :labels
+
   before_save :encrypt_password
   after_save :clear_password
 

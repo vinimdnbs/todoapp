@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :description, null: false
       t.integer :label_id, null: false
       t.boolean :status, default: true
+      t.integer :user_id, null: false
 
       t.timestamps
     end

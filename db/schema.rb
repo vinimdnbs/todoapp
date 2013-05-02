@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130425235507) do
 
   create_table "labels", :force => true do |t|
     t.string   "name",       :null => false
+    t.integer  "user_id",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130425235507) do
     t.string   "description",                   :null => false
     t.integer  "label_id",                      :null => false
     t.boolean  "status",      :default => true
+    t.integer  "user_id",                       :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
