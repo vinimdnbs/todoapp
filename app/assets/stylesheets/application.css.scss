@@ -28,3 +28,13 @@ header {
      margin-bottom: 0;
   }
 }
+
+.tasks, .labels, .users {
+  margin-bottom: 30px;
+
+  .wraper {
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 20px;
+  }
+}

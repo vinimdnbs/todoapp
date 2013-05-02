@@ -13,6 +13,13 @@
 
   .row
     .span12
+      .pull-right
+        .btn-group
+          = link_to 'Nova tarefa', new_task_path, class: 'btn btn-primary'
+          = link_to 'Nova label', new_label_path, class: 'btn'
+
+  .row
+    .span12
       - if notice
         .alert.alert-success.alert-block
           %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
@@ -41,10 +48,6 @@
                   %td= link_to 'Exibir', t
                   %td= link_to 'Editar', edit_task_path(t)
                   %td= link_to 'Apagar', t, method: :delete, data:{confirm: 'Você tem certeza?'}
-
-        .btn-group
-          = link_to 'Nova tarefa', new_task_path, class: 'btn btn-primary'
-          = link_to 'Nova label', new_label_path, class: 'btn'
 
       - else
         .alert.alert-info.alert-block

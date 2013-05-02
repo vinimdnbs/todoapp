@@ -4,7 +4,11 @@
   .row
     .span12
       %h1 Labels
+      .pull-right
+        = link_to 'Novo label', new_label_path, class: 'btn btn-primary'
 
+  .row
+    .span12
       - if notice
         .alert.alert-success.alert-block
           %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
@@ -24,8 +28,6 @@
                 %td= l.created_at.strftime('%d/%m/%Y')
                 %td= link_to 'Editar', edit_label_path(l)
                 %td= link_to 'Apagar', l, method: :delete, data:{confirm: 'Você tem certeza? Todas as tarefas relacionadas a este label também serão apagadas.'}
-
-      = link_to 'Novo label', new_label_path, class: 'btn btn-primary'
 
 :javascript
   $(document).ready(function() {
