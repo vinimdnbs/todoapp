@@ -13,18 +13,19 @@
 
   .row
     .span12
-      .pull-right
-        .btn-group
-          = link_to 'Nova tarefa', new_task_path, class: 'btn btn-primary'
-          = link_to 'Nova label', new_label_path, class: 'btn'
-
-  .row
-    .span12
-      - if notice
-        .alert.alert-success.alert-block
-          %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
-          %p= notice
       - if @labels.any?
+        .row
+          .span12
+            .pull-right
+              .btn-group
+                = link_to 'Nova tarefa', new_task_path, class: 'btn btn-primary'
+                = link_to 'Nova label', new_label_path, class: 'btn'
+
+        - if notice
+          .alert.alert-success.alert-block
+            %button{:type=>'button', :class=>'close', :data=>{:dismiss=>'alert'}} &times;
+            %p= notice
+
         .wraper
           %table.table
             %thead
